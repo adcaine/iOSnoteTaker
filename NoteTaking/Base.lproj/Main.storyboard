@@ -72,6 +72,9 @@
                             <constraint firstItem="KaP-h2-jEg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="nC4-Qu-yYN"/>
                             <constraint firstItem="glX-KO-4QC" firstAttribute="leading" secondItem="Tg3-La-kry" secondAttribute="trailing" constant="8" id="wvw-7m-MxH"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bqz-P1-aQE" appends="YES" id="ohh-39-WPW"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="editButton" destination="Tg3-La-kry" id="uct-WI-TOz"/>
@@ -80,6 +83,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bqz-P1-aQE">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="JLO-8Q-p5F"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>

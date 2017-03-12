@@ -21,7 +21,7 @@ class NotesViewController: UIViewController{
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.delegate = self
+//        tableView.delegate = self
     }
     
     
@@ -45,6 +45,10 @@ class NotesViewController: UIViewController{
         let buttonText = tableView.isEditing ? "Done" : "Edit"
         sender.setTitle(buttonText, for: .normal)
         
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        notesTextView.resignFirstResponder()
     }
 }
 
@@ -75,10 +79,10 @@ extension NotesViewController: UITableViewDataSource{
     }
 }
 
-extension NotesViewController: UITableViewDelegate{
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        notesTextView.resignFirstResponder()
-    }
-    
-}
+//extension NotesViewController: UITableViewDelegate{
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        notesTextView.resignFirstResponder()
+//    }
+//    
+//}
