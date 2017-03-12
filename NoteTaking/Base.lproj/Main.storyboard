@@ -74,6 +74,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="Tg3-La-kry" id="uct-WI-TOz"/>
                         <outlet property="notesTextView" destination="glX-KO-4QC" id="ubs-If-nlc"/>
                         <outlet property="tableView" destination="qUG-Tj-9pz" id="apw-Vq-lea"/>
                     </connections>

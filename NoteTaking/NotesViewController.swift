@@ -14,6 +14,8 @@ class NotesViewController: UIViewController{
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var editButton: UIButton!
+    
     var notesData: NotesData!
     
     override func viewDidLoad() {
@@ -27,12 +29,18 @@ class NotesViewController: UIViewController{
         guard let newNote = notesTextView.text else{
             return
         }
+        guard !newNote.isEmpty else {
+            return
+        }
         notesData.add(newNote)
         tableView.reloadData()
         notesTextView.text = ""
     }
     
     @IBAction func editTable(_ sender: UIButton) {
+        guard notesData.notes.count > 0 else{
+            return
+        }
         tableView.setEditing(!tableView.isEditing, animated: true)
         let buttonText = tableView.isEditing ? "Done" : "Edit"
         sender.setTitle(buttonText, for: .normal)
@@ -60,6 +68,9 @@ extension NotesViewController: UITableViewDataSource{
         if editingStyle == .delete{
             notesData.notes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            if(notesData.notes.count == 0){
+                editButton.setTitle("Edit", for: .normal)
+            }
         }
     }
 }
